@@ -6,7 +6,7 @@
 /*   By: pgimeno <pgimeno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:49:58 by pgimeno           #+#    #+#             */
-/*   Updated: 2024/06/11 08:25:12 by pgimeno          ###   ########.fr       */
+/*   Updated: 2024/06/11 08:28:16 by pgimeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(void)
 
 	printf("OG %d\n", printf("OG Hello World!\n"));
 	ft_printf("OG %d\n", ft_printf("OG Hello World!\n"));
+
+	ft_printf("\n");
 
 	printf("OG %%%% \n");
 	ft_printf("NW %%%% \n\n");
