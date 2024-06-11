@@ -6,7 +6,7 @@
 /*   By: pgimeno <pgimeno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:49:58 by pgimeno           #+#    #+#             */
-/*   Updated: 2024/06/10 09:27:41 by pgimeno          ###   ########.fr       */
+/*   Updated: 2024/06/11 08:25:12 by pgimeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ int	main(void)
 	char	*str = "This is a string";
 	char *null;
 
-	printf("OG  %%%% \n");
-	ft_printf("NW  %%%% \n\n");
+	printf("OG %d\n", printf("OG Hello World!\n"));
+	ft_printf("OG %d\n", ft_printf("OG Hello World!\n"));
+
+	printf("OG %%%% \n");
+	ft_printf("NW %%%% \n\n");
 
 	printf("OG 16 in Hexa: %x \n", -16);
 	ft_printf("NW 16 in Hexa: %x \n\n", -16);
@@ -40,7 +43,7 @@ int	main(void)
 	ft_printf("NW This is the number 0x42: %i\n\n", 0x42);
 
 	printf("OG Max Unsigned INT: %u\n", UINT_MAX);
-	ft_printf("Max Unsigned INT: %u\n\n", UINT_MAX);
+	ft_printf("NW Max Unsigned INT: %u\n\n", UINT_MAX);
 
 	printf("OG Negative Unsigned INT: %u\n", -42);
 	ft_printf("NW Negative Unsigned INT: %u\n\n", -42);
