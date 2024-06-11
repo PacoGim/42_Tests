@@ -6,7 +6,7 @@
 /*   By: pgimeno <pgimeno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:49:58 by pgimeno           #+#    #+#             */
-/*   Updated: 2024/06/11 08:28:16 by pgimeno          ###   ########.fr       */
+/*   Updated: 2024/06/11 08:32:17 by pgimeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ int	main(void)
 	char	*str = "This is a string";
 	char *null;
 
-	printf("OG %d\n", printf("OG Hello World!\n"));
-	ft_printf("OG %d\n", ft_printf("OG Hello World!\n"));
+	printf("OG Char Count: %d\n", printf("OG Hello World!\n"));
+	ft_printf("\n");
 
+	ft_printf("NW Char Count: %d\n", ft_printf("NW Hello World!\n"));
 	ft_printf("\n");
 
 	printf("OG %%%% \n");
@@ -66,6 +67,6 @@ int	main(void)
 	ft_printf("NW Pointer MEMPOS: %p\n\n", str);
 
 	printf("OG Pointer MEMPOS: %p\n", null);
-	ft_printf("NW Pointer MEMPOS: %p\n\n", null);
+	ft_printf("NW Pointer MEMPOS: %p\n", null);
 	return (0);
 }
