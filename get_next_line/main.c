@@ -1,45 +1,79 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgimeno <pgimeno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:53:24 by pgimeno           #+#    #+#             */
-/*   Updated: 2024/06/11 08:52:22 by pgimeno          ###   ########.fr       */
+/*   Updated: 2024/06/20 12:24:13 by pgimeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <fcntl.h>
 #include <unistd.h>
+#include <string.h>
+
+void	read_files(int argc, char **argv)
+{
+	static	int files[1024];
+	static	int count = 0;
+	char	*line;
+	int	char_count;
+	int	i = 1;
+
+	files[0] = -1;
+	// OPEN ALL FILES
+	while (i <= argc - 1)
+	{
+		files[i] = open(argv[i], O_RDONLY);
+		files[i + 1] = -1;
+		i++;
+	}
+
+	i = 1;
+	while (files[i] != -1)
+	{
+		char_count = 0;
+		while ((line = get_next_line(files[i])))
+		{
+			if (line)
+				count++;
+			printf("[%d,%d] Line:", i, count);
+			char_count += printf("%s", line);
+			free(line);
+		}
+		printf("\nTotal Lines: %d\nTotal Chars: %d\nWith buffer: %d\n\n", count, char_count, BUFFER_SIZE);
+		printf("\nIs everything looking good?\n");
+		line = get_next_line(1);
+		if (strcmp(line, "y"))
+			printf("Good! =D\n\n");
+		else
+			printf("D:\n");
+		char_count = 0;
+		count = 0;
+		i++;
+	}
+
+	// CLOSES ALL FILES WHEN DONE
+	i = 0;
+	while (files[i] != -1)
+	{
+		close(files[i]);
+		i++;
+		if (files[i] == -1)
+			return ;
+	}
+}
 
 int main(int argc, char **argv)
 {
-	int	file;
+	int fd1;
+	char *line;
 	int	count;
-	char	*line;
-	int	lines_to_read = 10;
+	int	char_count;
 
-	count = 0;
-	file = open(argv[1], O_RDWR);
-	while ((line = get_next_line(file)))
-	{
-		count++;
-		printf("%s", line);
-		free(line);
-	}
-	printf("---------- EOF ----------");
-	printf("\nLine Count: %d\n", count);
-	printf("BUFFER SIZE: %d\n", BUFFER_SIZE);
-	close(file);
-	return (0);
-	while (lines_to_read != 0)
-	{
-		line = get_next_line(1);
-		printf("%s", line);
-		lines_to_read--;
-		free(line);
-	}
+	read_files(argc, argv);
 	return (0);
 }
