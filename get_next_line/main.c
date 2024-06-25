@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgimeno <pgimeno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:53:24 by pgimeno           #+#    #+#             */
-/*   Updated: 2024/06/20 12:24:13 by pgimeno          ###   ########.fr       */
+/*   Updated: 2024/06/25 09:38:48 by pgimeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	read_files(int argc, char **argv)
 		printf("\nTotal Lines: %d\nTotal Chars: %d\nWith buffer: %d\n\n", count, char_count, BUFFER_SIZE);
 		printf("\nIs everything looking good?\n");
 		line = get_next_line(1);
-		if (strcmp(line, "y"))
+		if (strcmp(line, "y") == 1)
 			printf("Good! =D\n\n");
 		else
 			printf("D:\n");
